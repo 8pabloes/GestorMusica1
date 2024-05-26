@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Álbumes{% endblock %}
+
+{% block body %}
+<h1>Álbumes</h1>
+
+<a href="{{ path('album_new') }}" class="btn btn-primary mb-3">Crear nuevo álbum</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Artista</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for album in albums %}
+            <tr>
+                <td>{{ album.id }}</td>
+                <td>{{ album.titulo }}</td>
+                <td>{{ album.artista }}</td>
+                <td>
+                    <a href="{{ path('album_show', {'id': album.id}) }}" class="btn btn-info btn-sm">Ver</a>
+                    <a href="{{ path('album_edit', {'id': album.id}) }}" class="btn btn-warning btn-sm">Editar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

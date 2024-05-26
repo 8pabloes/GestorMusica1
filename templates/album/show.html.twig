@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detalles del álbum{% endblock %}
+
+{% block body %}
+<h1>{{ album.titulo }}</h1>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>Artista:</strong> {{ album.artista }}</li>
+    <li class="list-group-item"><strong>Sello:</strong> {{ album.sello }}</li>
+    <li class="list-group-item"><strong>Categoría:</strong> {{ album.categoria }}</li>
+    <li class="list-group-item"><strong>Año:</strong> {{ album.ano }}</li>
+    <li class="list-group-item"><strong>Pistas:</strong> {{ album.pistas }}</li>
+    <li class="list-group-item"><strong>Fecha de Compra:</strong> {{ album.fechaCompra|date('Y-m-d H:i') }}</li>
+    <li class="list-group-item"><strong>Formato:</strong> {{ album.formato }}</li>
+</ul>
+
+<a href="{{ path('album_index') }}" class="btn btn-primary mt-3">Volver a la lista</a>
+{% endblock %}
